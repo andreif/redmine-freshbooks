@@ -133,8 +133,9 @@ class FreshbooksController < ApplicationController
       project_hash['freshbooks_staff_members'] = []
       if project_hash['staff']['staff_id'].kind_of? Array
         project_hash['staff']['staff_id'].each do |member_id|
-          staff_mem = FreshbooksStaffMember.find_by_staff_id member_id
-          project_hash['freshbooks_staff_members'].push staff_mem
+          if staff_mem = FreshbooksStaffMember.find_by_staff_id(member_id)
+              project_hash['freshbooks_staff_members'].push staff_mem
+          end
         end
       else
         staff_mem = FreshbooksStaffMember.find_by_staff_id project_hash['staff']['staff_id']
