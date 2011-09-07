@@ -45,5 +45,5 @@ Redmine::Plugin.register :redmine_freshbooks do
   version '1.0.0'
   url 'http://github.com/phsr/Redmine-Freshbooks'
   author_url 'http://github.com/phsr'
-  settings :default => {'freshbooks_domain' => 'YOURDOMAIN.frehsbooks.com', 'freshbooks_enabled' => 'no'}, :partial => 'settings/settings'
+  settings :default => {'freshbooks_domain' => 'YOURDOMAIN.freshbooks.com', 'freshbooks_enabled' => 'no'}, :partial => 'settings/settings'
 end
