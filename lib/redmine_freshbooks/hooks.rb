@@ -6,7 +6,7 @@ class Hooks < Redmine::Hook::ViewListener
        context[:time_entry].is_editing = true
        project = Project.find context[:time_entry].project_id
        unless User.current.freshbooks_api_key.nil? || User.current.freshbooks_api_key.empty?
-         if project
+         if project and project.freshbooks_project
            context[:time_entry].freshbooks_project_permitted = project.freshbooks_project.freshbooks_staff_members.include?(User.current.freshbooks_staff_member)
            context[:time_entry].send_to_freshbooks = User.current.log_to_freshbooks && context[:time_entry].freshbooks_project_permitted
          end
